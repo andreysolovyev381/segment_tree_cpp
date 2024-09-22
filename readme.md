@@ -24,4 +24,4 @@ Everything should be ```noexcept```. If it is not in your case then just remove 
 MIT
 
 ### Disclosure
-Despite heavy testing performed (see ./tests/test_11.txt), no guarantees of any kind are given whatsoever. Use it at your own risk.
+Despite of testing performed, no guarantees of any kind are given whatsoever. Use it at your own risk.
