@@ -28,13 +28,13 @@ namespace containers {
 		}
 
 		segment_tree(std::vector<T> const& input, Func f) requires std::default_initializable<T>
-		        : func(f)
+		: func(f)
 		{
 			build(input);
 		}
 
 		segment_tree(std::vector<T> const &input, T default_value, Func f)
-				: func(f)
+		: func(f)
 		{
 			build(input, default_value);
 		}
@@ -92,7 +92,8 @@ namespace containers {
 		requires ((std::same_as<Idxs, std::size_t> || std::is_nothrow_convertible_v<Idxs, std::size_t>), ...)
 		bool is_ok_bounds(Idxs &&... idxs) const noexcept {
 			bool res {true};
-			return ((res = res && idxs < sz), ...);
+			((res = res && idxs < sz), ...);
+			return res;
 		}
 
 		void build_ (std::vector<T> const& s, std::size_t v, std::size_t tl, std::size_t tr) noexcept {
