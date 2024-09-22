@@ -25,7 +25,12 @@ Declaration:
 ```
 
 ### Implementation details
-Everything should be ```noexcept```. If it is not in your case then just remove it from class, it is 3 mins job.
+* tree is built either using class ctor or method ```segment_tree::build(std::vector<T> const& input)```. Optionally one can provide default value of type T. 
+* tree has method ```segment_tree::query(std::size_t left, std::size_t right)```, if something goes wrong you get ```std::nullopt```.
+* tree has method ```segment_tree::update(T value, std::size_t pos)```, if something goes wrong you get ```false```.
+* tree doesn't throw by itself, but it may happen in ctor() or build() - if there is not enough memory.  
+* everything from your side should be ```noexcept``` - lamdbas specifically. If it is not your case then just remove it from class, it is 3 mins job.
+* for other details look into class itself.
 
 ### License
 MIT
