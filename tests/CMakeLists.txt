@@ -11,6 +11,7 @@ else()
     add_compile_options(
             -O3
             -march=native
+            -Wno-error=maybe-uninitialized #Google Tests complains if not
     )
 endif()
 add_compile_options(
@@ -31,6 +32,7 @@ endif()
 add_executable(${TESTS_NAME}
         ./tests_basic_functionality.cpp
         ./tests_user_defined_data_type.cpp
+        ./tests_random_test.cpp
         ./main.cpp
 )
 target_compile_definitions(${TESTS_NAME} PUBLIC CMAKE_SOURCE_DIR="${CMAKE_SOURCE_DIR}")

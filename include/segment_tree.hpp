@@ -101,7 +101,7 @@ namespace containers {
 				t[v] = s[tl];
 				return;
 			}
-			std::size_t tm = tl + (tr - tl) / 2;
+			std::size_t const tm {tl + (tr - tl) / 2};
 			build_(s, left(v), tl, tm);
 			build_(s, right(v), tm + 1, tr);
 			t[v] = func(t[left(v)], t[right(v)]);
@@ -112,7 +112,7 @@ namespace containers {
 				t[v] = val;
 				return;
 			}
-			std::size_t tm = tl + (tr - tl) / 2;
+			std::size_t const tm {tl + (tr - tl) / 2};
 			if (pos <= tm) {
 				update_(left(v), tl, tm, val, pos);
 			}
@@ -130,7 +130,7 @@ namespace containers {
 				return t[v];
 			}
 
-			std::size_t tm = tl + (tr - tl) / 2;
+			std::size_t const tm {tl + (tr - tl) / 2};
 			std::optional<T> const left_subtree_res
 					{query_(left(v), tl, tm, l, std::min(tm, r))};
 			std::optional<T> const right_subtree_res
