@@ -104,7 +104,7 @@ namespace containers {
 			std::size_t tm = tl + (tr - tl) / 2;
 			build_(s, left(v), tl, tm);
 			build_(s, right(v), tm + 1, tr);
-			t[v] = func(left(v), right(v));
+			t[v] = func(t[left(v)], t[right(v)]);
 		}
 
 		void update_(std::size_t v, std::size_t tl, std::size_t tr, T const& val, std::size_t pos) noexcept {
@@ -119,7 +119,7 @@ namespace containers {
 			else {
 				update_(right(v), tm + 1, tr, val, pos);
 			}
-			t[v] = func(left(v), right(v));
+			t[v] = func(t[left(v)], t[right(v)]);
 		}
 
 		std::optional<T> query_(std::size_t v, std::size_t tl, std::size_t tr, std::size_t l, std::size_t r) const noexcept {
