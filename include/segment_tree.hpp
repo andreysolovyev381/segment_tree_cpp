@@ -126,7 +126,7 @@ namespace containers {
 			if (l > r) {
 				return std::nullopt;
 			}
-			if (tr == tl) {
+			if ((tr == tl) || (tl == l && tr == r)) {
 				return t[v];
 			}
 
@@ -147,5 +147,4 @@ namespace containers {
 			}
 		}
 	};
-
 }//!namespace containers
